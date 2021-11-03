@@ -1,0 +1,44 @@
+{
+    "dev": {
+      "route53_enabled": "false",
+      "aws_region": "us-east-1",
+      "django_settings": "SAAS_MONITOR.settings",
+      "profile_name": "default",
+      "project_name": "saas-monitor",
+      "runtime": "python3.8",
+      "s3_bucket": "saas-monitor-123",
+      "keep-warm": true,
+      "memory_size": 1024,
+      "certificate_arn": "arn:aws:acm:us-east-1:676730434944:certificate/c59883c9-b171-4fda-8bb9-ca5748acf21b",
+      "domain": "*.saasmonitor.online",
+      "environment_variables": {
+        "DB_NAME": "saas-monitor",
+        "DB_HOST": "saas-monitor-db.cl478mqgkdue.us-east-1.rds.amazonaws.com",
+        "DB_USER": "postgres",
+        "DB_PASSWORD": "cascade2021",
+        "DB_PORT": "5432",
+        "SENDGRID_API_KEY": "",
+        "SKIP_EMAIL": "True",
+        "DEFAULT_FROM_EMAIL": ""
+      },
+      "events": [
+        {
+          "function": "saas_account.utils.get_zoom_status",
+          "expression": "rate(15 sec)"
+        },
+        {
+          "function": "saas_account.utils.get_slack_status",
+          "expression": "rate(15 sec)"
+        },
+        {
+          "function": "saas_account.utils.get_miro_status",
+          "expression": "rate(15 sec)"
+        },
+        {
+            "function": "saas_account.utils.get_trello_status",
+            "expression": "rate(15 sec)"
+          }
+
+      ]
+    }
+  }

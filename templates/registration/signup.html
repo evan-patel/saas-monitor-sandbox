@@ -1,0 +1,105 @@
+{% load static %}
+<html lang="en">
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, shrink-to-fit=no">
+    <title>SaaS Monitor</title>
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.8.1/css/all.css">
+    <link rel="stylesheet" href="{% static "main/css/main.css" %}">
+    <style>
+        .w-auto {
+            width: auto !important;
+        }
+
+        .site-name {
+            font-size: 20px;
+            padding: 0 5px;
+            color: #8a8a8a;
+        }
+    </style>
+</head>
+<body>
+<div class="container">
+    <div class="row">
+        <div class="col-md-6">
+            <div class="card">
+                <div class="box-o">
+                    {% if not success %}
+                        <div class="h1 text-center">Register Yourself</div>
+                        <form method="post">
+                            {% csrf_token %}
+                            <div class="form-row my-4">
+                                <div class="col">
+                                    {{ form.first_name.label }}
+                                    {{ form.first_name }}
+                                    {% if form.errors.first_name %}
+                                        <div class="invalid-feedback d-block">{{ form.errors.first_name|striptags }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col">
+                                    {{ form.last_name.label }}
+                                    {{ form.last_name }}
+                                    {% if form.errors.last_name %}
+                                        <div class="invalid-feedback d-block">{{ form.errors.last_name|striptags }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-row my-4">
+                                <div class="col">
+                                    {{ form.email.label }}
+                                    {{ form.email }}
+                                    {% if form.errors.email %}
+                                        <div class="invalid-feedback d-block">{{ form.errors.email|striptags }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col">
+                                    {{ form.site_name.label }}
+                                    <div class="input-group mb-2">
+                                        {{ form.site_name }}
+                                        <div class="input-group-append">
+                                            <div class="input-group-text">.{{ SITE_HOST }}</div>
+                                        </div>
+                                        {% if form.errors.site_name %}
+                                            <div class="invalid-feedback d-block">{{ form.errors.site_name|striptags }}</div>
+                                        {% endif %}
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="form-row my-4">
+                                <div class="col">
+                                    {{ form.password.label }}
+                                    {{ form.password }}
+                                    {% if form.errors.password %}
+                                        <div class="invalid-feedback d-block">{{ form.errors.password|striptags }}</div>
+                                    {% endif %}
+                                </div>
+                                <div class="col">
+                                    {{ form.confirm_password.label }}
+                                    {{ form.confirm_password }}
+                                    {% if form.errors.confirm_password %}
+                                        <div class="invalid-feedback d-block">{{ form.errors.confirm_password|striptags }}</div>
+                                    {% endif %}
+                                </div>
+                            </div>
+                            <div class="form-row my-4">
+                                <div class="col text-center">
+                                    <input class="btn btn-primary" type="submit" value="Submit">
+                                </div>
+                            </div>
+                        </form>
+                    {% else %}
+                        <h1>Success !!</h1>
+                        <div>You will receive an email when creation of your tenant is done. !!</div>
+                        <div>Enjoy our service !!</div>
+                    {% endif %}
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.bundle.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
+</body>
+</html>

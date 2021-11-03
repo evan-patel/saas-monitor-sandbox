@@ -1,0 +1,33 @@
+{% extends 'base.html' %}
+{% block content %}
+<div class="row">
+    <div class="col-12 my-3">
+        <h3>Zoom Status</h3>
+        <p> {{ zoom_current.description }}</p>
+        {% for zo in zoom %}
+        <span class="status-box {{ zo.indicator }} d-inline-block"></span>
+        {% endfor %}
+    </div>
+    <div class="col-12 my-3">
+        <h3>Slack Status</h3>
+        <p> {% if slack_current.active_incidents  %}Service Degraded{% else %}All Systems Operational{% endif %}</p>
+        {% for sl in slack %}
+        <span class="status-box {{ sl.status }} d-inline-block"></span>
+        {% endfor %}
+    </div>
+    <div class="col-12 my-3">
+        <h3>Miro Status</h3>
+        <p> {{ miro_current.description }}</p>
+        {% for mi in miro %}
+        <span class="status-box {{ mi.indicator }} d-inline-block"></span>
+        {% endfor %}
+    </div>
+    <div class="col-12 my-3">
+        <h3>Trello Status</h3>
+        <p> {{ trello_current.description }}</p>
+        {% for tr in trello %}
+        <span class="status-box {{ tr.indicator }} d-inline-block"></span>
+        {% endfor %}
+    </div>
+</div>
+{% endblock %}

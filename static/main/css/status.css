@@ -1,0 +1,18 @@
+.ok{
+    background-color: #d5d200;
+}
+.active{
+    background-color: #ef7a00;
+}
+.ok{
+    background-color: #8ec400;
+}
+.resolved{
+    background-color: #0055cb;
+}
+.scheduled{
+    background-color: #8d00ff;
+}
+.completed{
+    background-color: #8ec400;
+}
