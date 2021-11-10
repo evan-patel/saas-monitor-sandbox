@@ -1,12 +1,15 @@
 {
     "dev": {
-      "route53_enabled": "false",
+#      "manage_roles": false
+#      "role_name":" saas-monitor-roleu123sa64"
+#      "role_arn": "arn:aws:iam::676730434944:role/service-role/Saas-monitor-role-u123sa64"
+#      "route53_enabled": false,
       "aws_region": "us-east-1",
       "django_settings": "SAAS_MONITOR.settings",
       "profile_name": "default",
-      "project_name": "saas-monitor",
+      "project_name": "saas-monitor-ucc",
       "runtime": "python3.8",
-      "s3_bucket": "saas-monitor-123",
+      "s3_bucket": "saas-monitor-5792318",
       "keep-warm": true,
       "memory_size": 1024,
       "certificate_arn": "arn:aws:acm:us-east-1:676730434944:certificate/c59883c9-b171-4fda-8bb9-ca5748acf21b",
@@ -24,19 +27,19 @@
       "events": [
         {
           "function": "saas_account.utils.get_zoom_status",
-          "expression": "rate(15 sec)"
+          "expression": "rate(1 minute)"
         },
         {
           "function": "saas_account.utils.get_slack_status",
-          "expression": "rate(15 sec)"
+          "expression": "rate(1 minute)"
         },
         {
           "function": "saas_account.utils.get_miro_status",
-          "expression": "rate(15 sec)"
+          "expression": "rate(1 minute)"
         },
         {
             "function": "saas_account.utils.get_trello_status",
-            "expression": "rate(15 sec)"
+            "expression": "rate(1 minute)"
           }
 
       ]

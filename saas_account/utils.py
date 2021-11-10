@@ -114,6 +114,6 @@ def get_trello_status():
         updated_at = convert_time_to_time_zone(page.get('updated_at'))
         trello_status = data_json.get('status')
         trello_status['trello_updated_at'] = updated_at
-        updated, created = Trello.objects.update_or_create(miro_updated_at=updated_at, date=timezone.now().date(),
+        updated, created = Trello.objects.update_or_create(trello_updated_at=updated_at, date=timezone.now().date(),
                                                           defaults=trello_status)
         logging.info(f"{str(updated)} -----> {created}")
