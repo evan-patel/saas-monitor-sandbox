@@ -5,7 +5,7 @@
       "profile_name": "default",
       "project_name": "saas-monitor-ucc-new",
       "runtime": "python3.8",
-      "s3_bucket": "saas-monitor-zappa-569",
+      "s3_bucket": "saas-monitor-ucc-new",
       "keep-warm": true,
       "memory_size": 1024,
       "certificate_arn": "arn:aws:acm:us-east-1:883358647493:certificate/fb02142b-fb36-49b2-a039-292b108ed32f",
