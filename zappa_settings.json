@@ -11,8 +11,8 @@
       "certificate_arn": "arn:aws:acm:us-east-1:883358647493:certificate/fb02142b-fb36-49b2-a039-292b108ed32f",
       "domain": "*.onboardingbot297358047489732296413.link",
       "environment_variables": {
-        "DB_NAME": "database-saas-monitor",
-        "DB_HOST": "database-saas-monitor.cs8iakx6h5dz.us-east-1.rds.amazonaws.com",
+        "DB_NAME": "database-1",
+        "DB_HOST": "database-1.cs8iakx6h5dz.us-east-1.rds.amazonaws.com",
         "DB_USER": "postgres",
         "DB_PASSWORD": "cascade2021",
         "DB_PORT": "5432",
